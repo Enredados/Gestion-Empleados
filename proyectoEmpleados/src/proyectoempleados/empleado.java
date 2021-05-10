@@ -9,6 +9,7 @@ package proyectoempleados;
  *
  * @author alang
  */
+//Holaaaaaa
 public class empleado {
     private String nombre;
     private String codigo;
