@@ -11,15 +11,18 @@ package proyectoempleados;
  */
 //Holaaaaaa
 public class empleado {
-    private String nombre;
-    private String codigo;
+    private String nombre; //25
+    private String apellido; //25
+    private String cedula; //10
+    private int edad; //
     private int sueldo;
-    private String edad;
     
-    public empleado(String nombre, int sueldo, String edad){
+    public empleado(String nombre, String apellido, String cedula, int edad, int sueldo){
         this.nombre = nombre;
-        this.sueldo = sueldo;
+        this.apellido = apellido;
+        this.cedula = cedula;
         this.edad = edad;
+        this.sueldo = sueldo;
     }
 
     public String getNombre() {
@@ -30,12 +33,28 @@ public class empleado {
         this.nombre = nombre;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
     public int getSueldo() {
@@ -45,15 +64,4 @@ public class empleado {
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-    
-    
-    
 }
