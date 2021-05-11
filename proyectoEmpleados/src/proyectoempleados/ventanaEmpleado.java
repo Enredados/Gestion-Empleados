@@ -269,6 +269,11 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Consultar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setText("Cédula");
@@ -434,36 +439,36 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         String raiz = System.getProperty("user.dir");
-        
+
         try {
             String cedula;
             String nombre;
             String apellido;
             int edad;
             String cargo;
-            double sueldo; 
-            
+            double sueldo;
+
             long tamRegistro = 162;
             long cregistros = 0;
             File arch = new File(raiz + "\\EMPLEADO.dat");
             RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
-            cregistros = archivo.length()/tamRegistro;
+            cregistros = archivo.length() / tamRegistro;
             for (int r = 0; r < cregistros; r++) {
-                nombre="";
-                for(int i = 0; i < 25; i++){
+                nombre = "";
+                for (int i = 0; i < 25; i++) {
                     nombre += archivo.readChar();
                 }
-                apellido="";
-                for(int i = 0; i < 25; i++){
+                apellido = "";
+                for (int i = 0; i < 25; i++) {
                     apellido += archivo.readChar();
                 }
-                cedula="";
-                for(int i = 0; i < 10; i++){
+                cedula = "";
+                for (int i = 0; i < 10; i++) {
                     cedula += archivo.readChar();
                 }
                 edad = archivo.readInt();
-                cargo="";
-                for(int i = 0; i < 15; i++){
+                cargo = "";
+                for (int i = 0; i < 15; i++) {
                     cargo += archivo.readChar();
                 }
                 sueldo = archivo.readDouble();
@@ -472,8 +477,74 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         } catch (Exception e) {
 
-        } 
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+        String raiz = System.getProperty("user.dir");
+        try {
+            String cedula;
+            String nombre;
+            String apellido;
+            int edad;
+            String cargo;
+            double sueldo;
+            long tamRegistro = 162;
+            long cregistros = 0;
+
+            File arch = new File(raiz + "\\EMPLEADO.dat");
+            RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
+            cregistros = archivo.length() / tamRegistro;
+            long ced = 100;
+
+            for (int r = 0; r < cregistros; r++) {
+                archivo.seek(ced);
+                cedula = "";
+                for (int i = 0; i < 10; i++) {
+                    cedula += archivo.readChar();
+                }
+                if (jTextField5.getText().equals(cedula)) {
+                    archivo.seek(ced-100);
+                    /*nombre = "";
+                    for (int i = 0; i < 25; i++) {
+                        nombre += archivo.readChar();
+                    }
+                    apellido = "";
+                    for (int i = 0; i < 25; i++) {
+                        apellido += archivo.readChar();
+                    }
+                    cedula = "";
+                    for (int i = 0; i < 10; i++) {
+                        cedula += archivo.readChar();
+                    }
+                    edad = archivo.readInt();
+                    cargo = "";
+                    for (int i = 0; i < 15; i++) {
+                        cargo += archivo.readChar();
+                    }
+                    sueldo = archivo.readDouble();*/
+                    nombre = archivo.readUTF();
+                    apellido = archivo.readUTF();
+                    cedula = archivo.readUTF();
+                    edad = archivo.readInt();
+                    cargo = archivo.readUTF();
+                    sueldo = archivo.readDouble();
+
+                    model.insertRow(model.getRowCount(), new Object[]{cedula, nombre, apellido, edad, cargo, sueldo});
+                    ced += 162;
+
+                } else {
+                    ced += 162;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
