@@ -20,7 +20,7 @@ public class empleado {
     private String apellido; //25
     private String cedula; //10
     private String cargo; //15
-    private int edad; //
+    private int edad; 
     private double sueldo;
     
     public empleado(String nombre, String apellido, String cedula, int edad, String cargo, double sueldo){
