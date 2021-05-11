@@ -7,6 +7,9 @@ package proyectoempleados;
 
 import java.io.File;
 import java.io.RandomAccessFile;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -111,6 +114,8 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(170, 212, 255));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Ingreso Empleados");
 
@@ -146,10 +151,6 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,18 +164,22 @@ public class ventanaEmpleado extends javax.swing.JFrame {
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel7)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(244, 244, 244)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,9 +216,12 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Ingreso", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(224, 255, 224));
+
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("Consulta General Empleados");
 
+        jTable1.setBackground(new java.awt.Color(204, 255, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -248,7 +256,7 @@ public class ventanaEmpleado extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -274,6 +282,8 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consulta General", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(253, 235, 218));
+
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Consulta Por Parámetro Empleados");
 
@@ -288,6 +298,7 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setText("Cédula");
 
+        jTable2.setBackground(new java.awt.Color(255, 216, 191));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -319,12 +330,12 @@ public class ventanaEmpleado extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(115, 115, 115))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(182, Short.MAX_VALUE)
+                .addContainerGap(125, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(178, 178, 178))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -344,7 +355,11 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consulta Por Parametro", jPanel3);
 
+        jPanel5.setBackground(new java.awt.Color(209, 255, 241));
+
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
@@ -357,6 +372,11 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton5.setText("Mostrar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("Parámetro");
@@ -369,28 +389,25 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(21, 21, 21))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel11)
-                        .addGap(47, 47, 47)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel12)
-                        .addGap(50, 50, 50)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton5)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(231, 231, 231)
+                            .addComponent(jLabel10))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(jLabel11)
+                            .addGap(47, 47, 47)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(49, 49, 49)
+                            .addComponent(jLabel12)
+                            .addGap(50, 50, 50)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,11 +420,11 @@ public class ventanaEmpleado extends javax.swing.JFrame {
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estadísticas", jPanel5);
@@ -437,6 +454,7 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         sueldo = Integer.parseInt(jTextField3.getText());
         empleado Empleado = new empleado(nombre, apellido, cedula, edad, cargo, sueldo);
         Empleado.agregar();
+        JOptionPane.showMessageDialog(this, "INGRESO EXITOSO");
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField6.setText("");
@@ -488,9 +506,8 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         String raiz = System.getProperty("user.dir");
-        
-        try {
 
+        try {
             File arch = new File(raiz + "\\EMPLEADO.dat");
             RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
             cregistros = archivo.length() / tamRegistro;
@@ -534,8 +551,87 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        jTextField5.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // Estadísticas
+        double suma = 0d, promedio = 0d;
+        int cont = 0;
+        String opCargo = jComboBox4.getSelectedItem().toString();
+        if (jComboBox3.getSelectedItem().toString().equals("Sueldo")) {
+            String raiz = System.getProperty("user.dir");
+
+            try {
+                File arch = new File(raiz + "\\EMPLEADO.dat");
+                RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
+                cregistros = archivo.length() / tamRegistro;
+                //número de bytes hasta el campo
+                long longSueldo = 154;
+                long longCargo = 124;
+                for (int r = 0; r < cregistros; r++) {
+                    archivo.seek(longCargo);
+                    cargo = "";
+                    for (int i = 0; i < 15; i++) {
+                        cargo += archivo.readChar();
+                    }
+                    cargo = cargo.trim();
+                    //Promedio de sueldo según cargo
+                    if (opCargo.equals(cargo)) {
+                        archivo.seek(longSueldo);
+                        sueldo = archivo.readDouble();
+                        suma += sueldo;
+                        cont++;
+                        longCargo += tamRegistro;
+                        longSueldo += tamRegistro;
+                    } else {
+                        longCargo += tamRegistro;
+                        longSueldo += tamRegistro;
+                    }
+                }
+                promedio = suma / cont;
+                jTextArea1.setText("El promedio de sueldo de los empleados que ocupan el cargo de " + opCargo + " es: " + promedio);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } else {
+            String raiz = System.getProperty("user.dir");
+
+            try {
+                File arch = new File(raiz + "\\EMPLEADO.dat");
+                RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
+                cregistros = archivo.length() / tamRegistro;
+                //número de bytes hasta el campo
+                long longEdad = 120;
+                long longCargo = 124;
+                for (int r = 0; r < cregistros; r++) {
+                    archivo.seek(longCargo);
+                    cargo = "";
+                    for (int i = 0; i < 15; i++) {
+                        cargo += archivo.readChar();
+                    }
+                    cargo = cargo.trim();
+                    //Promedio de edad según cargo
+                    if (opCargo.equals(cargo)) {
+                        archivo.seek(longEdad);
+                        edad = archivo.readInt();
+                        suma += edad;
+                        cont++;
+                        longCargo += tamRegistro;
+                        longEdad += tamRegistro;
+                    } else {
+                        longCargo += tamRegistro;
+                        longEdad += tamRegistro;
+                    }
+                }
+                promedio = suma / cont;
+                NumberFormat nf = new DecimalFormat("##");
+                jTextArea1.setText("El promedio de edad de los empleados que ocupan el cargo de " + opCargo + " es: " + nf.format(promedio));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
