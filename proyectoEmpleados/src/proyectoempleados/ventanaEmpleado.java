@@ -18,8 +18,18 @@ public class ventanaEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form ventanaEmpleado
      */
+    String nombre;
+    String apellido;
+    String cedula;
+    int edad;
+    String cargo;
+    double sueldo;
+    long tamRegistro = 162;
+    long cregistros = 0;
+
     public ventanaEmpleado() {
         initComponents();
+
     }
 
     /**
@@ -327,9 +337,9 @@ public class ventanaEmpleado extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
 
         jTabbedPane1.addTab("Consulta Por Parametro", jPanel3);
@@ -418,12 +428,7 @@ public class ventanaEmpleado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String nombre;
-        String apellido;
-        String cedula;
-        int edad;
-        String cargo;
-        double sueldo;
+
         nombre = jTextField1.getText();
         apellido = jTextField2.getText();
         cedula = jTextField6.getText();
@@ -432,28 +437,26 @@ public class ventanaEmpleado extends javax.swing.JFrame {
         sueldo = Integer.parseInt(jTextField3.getText());
         empleado Empleado = new empleado(nombre, apellido, cedula, edad, cargo, sueldo);
         Empleado.agregar();
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField6.setText("");
+        jTextField4.setText("");
+        jTextField3.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        //Lectura del archivo para consulta general
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         String raiz = System.getProperty("user.dir");
 
         try {
-            String cedula;
-            String nombre;
-            String apellido;
-            int edad;
-            String cargo;
-            double sueldo;
-
-            long tamRegistro = 162;
-            long cregistros = 0;
             File arch = new File(raiz + "\\EMPLEADO.dat");
             RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
             cregistros = archivo.length() / tamRegistro;
+
             for (int r = 0; r < cregistros; r++) {
+                //Lectura de cada campo
                 nombre = "";
                 for (int i = 0; i < 25; i++) {
                     nombre += archivo.readChar();
@@ -481,34 +484,29 @@ public class ventanaEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // Consulta por parámetro
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         String raiz = System.getProperty("user.dir");
+        
         try {
-            String cedula;
-            String nombre;
-            String apellido;
-            int edad;
-            String cargo;
-            double sueldo;
-            long tamRegistro = 162;
-            long cregistros = 0;
 
             File arch = new File(raiz + "\\EMPLEADO.dat");
             RandomAccessFile archivo = new RandomAccessFile(arch, "rw");
             cregistros = archivo.length() / tamRegistro;
-            long ced = 100;
+            long longcedula = 100; //número de bytes hasta el campo cédula
 
             for (int r = 0; r < cregistros; r++) {
-                archivo.seek(ced);
+                archivo.seek(longcedula);
                 cedula = "";
                 for (int i = 0; i < 10; i++) {
                     cedula += archivo.readChar();
                 }
+                //Consulta por cédula
                 if (jTextField5.getText().equals(cedula)) {
-                    archivo.seek(ced-100);
-                    /*nombre = "";
+                    archivo.seek(longcedula - 100);
+                    //Lectura de cada campo del archivo
+                    nombre = "";
                     for (int i = 0; i < 25; i++) {
                         nombre += archivo.readChar();
                     }
@@ -525,19 +523,12 @@ public class ventanaEmpleado extends javax.swing.JFrame {
                     for (int i = 0; i < 15; i++) {
                         cargo += archivo.readChar();
                     }
-                    sueldo = archivo.readDouble();*/
-                    nombre = archivo.readUTF();
-                    apellido = archivo.readUTF();
-                    cedula = archivo.readUTF();
-                    edad = archivo.readInt();
-                    cargo = archivo.readUTF();
                     sueldo = archivo.readDouble();
 
                     model.insertRow(model.getRowCount(), new Object[]{cedula, nombre, apellido, edad, cargo, sueldo});
-                    ced += 162;
-
+                    longcedula += tamRegistro;
                 } else {
-                    ced += 162;
+                    longcedula += tamRegistro;
                 }
             }
         } catch (Exception e) {
