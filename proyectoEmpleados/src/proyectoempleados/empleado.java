@@ -31,6 +31,10 @@ public class empleado {
         this.edad = edad;
         this.sueldo = sueldo;
     }
+    
+    public empleado(){
+        
+    }
 
     public String getNombre() {
         return nombre;
