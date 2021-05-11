@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 package proyectoempleados;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
  * @author alang
@@ -21,60 +19,20 @@ public class empleado {
     private String nombre; //25
     private String apellido; //25
     private String cedula; //10
+    private String cargo; //15
     private int edad; //
     private double sueldo;
     
-    public empleado(String nombre, String apellido, String cedula, int edad, double sueldo){
+    public empleado(String nombre, String apellido, String cedula, int edad, String cargo, double sueldo){
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.edad = edad;
+        this.cargo = cargo;
         this.sueldo = sueldo;
     }
+
     
-    public empleado(){
-        
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public double getSueldo() {
-        return sueldo;
-    }
-
-    public void setSueldo(double sueldo) {
-        this.sueldo = sueldo;
-    }
     
     public void agregar() {
         String raiz = System.getProperty("user.dir");
@@ -85,18 +43,20 @@ public class empleado {
             darFormato();
 
             if (rand.length() == 0) {
-                rand.writeUTF(nombre);
-                rand.writeUTF(apellido);
-                rand.writeUTF(cedula);
+                rand.writeChars(nombre);
+                rand.writeChars(apellido);
+                rand.writeChars(cedula);
                 rand.writeInt(edad);
+                rand.writeChars(cargo);
                 rand.writeDouble(sueldo);
                 rand.close();
             } else {
                 rand.seek(rand.length());
-                rand.writeUTF(nombre);
-                rand.writeUTF(apellido);
-                rand.writeUTF(cedula);
+                rand.writeChars(nombre);
+                rand.writeChars(apellido);
+                rand.writeChars(cedula);
                 rand.writeInt(edad);
+                rand.writeChars(cargo);
                 rand.writeDouble(sueldo);
                 rand.close();
             }
@@ -135,6 +95,15 @@ public class empleado {
         }
         else {
             cedula = cedula.substring(0,10);
+        }
+        // cargo con formato char de 15 (30 bytes)
+        if(cargo.length() < 15){
+           for(int i = cargo.length(); i < 15; i++){
+                cargo +=" ";
+            }
+        }
+        else {
+            cargo = cargo.substring(0,15);
         }
     }
 }
