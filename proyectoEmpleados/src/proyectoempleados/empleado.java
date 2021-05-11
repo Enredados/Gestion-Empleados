@@ -33,7 +33,11 @@ public class empleado {
     }
 
     
-    
+    public static void main(String[] args) {
+        ventanaEmpleado ventana = new ventanaEmpleado();
+        ventana.setSize(700, 800);
+        ventana.setVisible(true);
+    }
     public void agregar() {
         String raiz = System.getProperty("user.dir");
 
@@ -106,4 +110,5 @@ public class empleado {
             cargo = cargo.substring(0,15);
         }
     }
+    
 }
